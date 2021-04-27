@@ -1,4 +1,5 @@
 To generate client protobuf code (javascript/typescript) you need to install the protobuf compiler (https://github.com/protocolbuffers/protobuf/releases).
+
 In the path WebClient/package.json need to change compile script: 
 
 %HOMEDRIVE%%HOMEPATH%/Programs/Protoc/bin/protoc.exe => path to your protobuf compiler exe 
