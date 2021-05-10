@@ -25,9 +25,10 @@ export class BloggerService {
           subscriber.complete();
         },
         onEnd: (code: grpc.Code, message: string | undefined, trailers: grpc.Metadata) => {
-          if (code !== grpc.Code.OK) {
-            subscriber.error({ code, message, trailers });
+          if (code === grpc.Code.OK) {
+            subscriber.complete();
           }
+          subscriber.error({ code, message, trailers });
         }
       });
     });

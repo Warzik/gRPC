@@ -22,7 +22,7 @@ export class WeatherForecastService {
           subscriber.next(message.toObject());
         },
         onEnd: (code: grpc.Code, message: string | undefined, trailers: grpc.Metadata) => {
-          if (code !== grpc.Code.OK) {
+          if (code === grpc.Code.OK) {
             subscriber.complete();
           }
           subscriber.error({ code, message, trailers });
