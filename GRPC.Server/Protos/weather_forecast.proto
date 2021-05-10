@@ -1,0 +1,19 @@
+// Style Guide: https://developers.google.com/protocol-buffers/docs/style 
+
+syntax = "proto3";
+
+package gRPC.server.protos;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+service WeatherForecasts {
+  rpc GetWeatherStream (google.protobuf.Empty) returns (stream WeatherData);
+}
+
+message WeatherData {
+  google.protobuf.Timestamp date_time_stamp = 1;
+  int32 temperature_c = 2;
+  int32 temperature_f = 3;
+  string summary = 4;
+}

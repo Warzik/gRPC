@@ -1,4 +1,4 @@
-// package: greet
+// package: gRPC.server.protos
 // file: greet.proto
 
 import * as jspb from "google-protobuf";

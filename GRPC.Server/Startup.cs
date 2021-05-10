@@ -58,6 +58,7 @@ namespace GRPC.Server
             {
                 endpoints.MapGrpcService<GreeterService>();
                 endpoints.MapGrpcService<BloggerService>();
+                endpoints.MapGrpcService<WeatherForecastService>();
             });
         }
     }

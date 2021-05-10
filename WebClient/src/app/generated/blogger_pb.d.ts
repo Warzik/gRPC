@@ -1,4 +1,4 @@
-// package: blog
+// package: gRPC.server.protos
 // file: blogger.proto
 
 import * as jspb from "google-protobuf";
@@ -46,8 +46,8 @@ export namespace BlogResponse {
 }
 
 export class BlogDto extends jspb.Message {
-  getBlogid(): number;
-  setBlogid(value: number): void;
+  getBlogId(): number;
+  setBlogId(value: number): void;
 
   getUrl(): string;
   setUrl(value: string): void;
@@ -69,15 +69,15 @@ export class BlogDto extends jspb.Message {
 
 export namespace BlogDto {
   export type AsObject = {
-    blogid: number,
+    blogId: number,
     url: string,
     postsList: Array<PostDto.AsObject>,
   }
 }
 
 export class PostDto extends jspb.Message {
-  getPostid(): number;
-  setPostid(value: number): void;
+  getPostId(): number;
+  setPostId(value: number): void;
 
   getTitle(): string;
   setTitle(value: string): void;
@@ -100,7 +100,7 @@ export class PostDto extends jspb.Message {
 
 export namespace PostDto {
   export type AsObject = {
-    postid: number,
+    postId: number,
     title: string,
     content: string,
     blogid: number,

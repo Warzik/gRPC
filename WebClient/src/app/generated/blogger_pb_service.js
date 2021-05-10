@@ -1,4 +1,4 @@
-// package: blog
+// package: gRPC.server.protos
 // file: blogger.proto
 
 var blogger_pb = require("./blogger_pb");
@@ -6,7 +6,7 @@ var grpc = require("@improbable-eng/grpc-web").grpc;
 
 var Blogger = (function () {
   function Blogger() {}
-  Blogger.serviceName = "blog.Blogger";
+  Blogger.serviceName = "gRPC.server.protos.Blogger";
   return Blogger;
 }());
 

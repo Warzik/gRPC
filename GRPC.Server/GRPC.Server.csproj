@@ -8,6 +8,7 @@
   <ItemGroup>
     <None Remove="Protos\blogger.proto" />
     <None Remove="Protos\greet.proto" />
+    <None Remove="Protos\weather_forecast.proto" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +29,7 @@
   <ItemGroup>
     <Protobuf Include="Protos\blogger.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\weather_forecast.proto" GrpcServices="Server" />
   </ItemGroup>
 
 </Project>

@@ -1,21 +1,22 @@
 // package: gRPC.server.protos
-// file: greet.proto
+// file: weather_forecast.proto
 
-import * as greet_pb from "./greet_pb";
+import * as weather_forecast_pb from "./weather_forecast_pb";
+import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
 import {grpc} from "@improbable-eng/grpc-web";
 
-type GreeterSayHello = {
+type WeatherForecastsGetWeatherStream = {
   readonly methodName: string;
-  readonly service: typeof Greeter;
+  readonly service: typeof WeatherForecasts;
   readonly requestStream: false;
-  readonly responseStream: false;
-  readonly requestType: typeof greet_pb.HelloRequest;
-  readonly responseType: typeof greet_pb.HelloReply;
+  readonly responseStream: true;
+  readonly requestType: typeof google_protobuf_empty_pb.Empty;
+  readonly responseType: typeof weather_forecast_pb.WeatherData;
 };
 
-export class Greeter {
+export class WeatherForecasts {
   static readonly serviceName: string;
-  static readonly SayHello: GreeterSayHello;
+  static readonly GetWeatherStream: WeatherForecastsGetWeatherStream;
 }
 
 export type ServiceError = { message: string, code: number; metadata: grpc.Metadata }
@@ -46,18 +47,10 @@ interface BidirectionalStream<ReqT, ResT> {
   on(type: 'status', handler: (status: Status) => void): BidirectionalStream<ReqT, ResT>;
 }
 
-export class GreeterClient {
+export class WeatherForecastsClient {
   readonly serviceHost: string;
 
   constructor(serviceHost: string, options?: grpc.RpcOptions);
-  sayHello(
-    requestMessage: greet_pb.HelloRequest,
-    metadata: grpc.Metadata,
-    callback: (error: ServiceError|null, responseMessage: greet_pb.HelloReply|null) => void
-  ): UnaryResponse;
-  sayHello(
-    requestMessage: greet_pb.HelloRequest,
-    callback: (error: ServiceError|null, responseMessage: greet_pb.HelloReply|null) => void
-  ): UnaryResponse;
+  getWeatherStream(requestMessage: google_protobuf_empty_pb.Empty, metadata?: grpc.Metadata): ResponseStream<weather_forecast_pb.WeatherData>;
 }
 

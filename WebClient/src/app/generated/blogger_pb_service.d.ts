@@ -1,4 +1,4 @@
-// package: blog
+// package: gRPC.server.protos
 // file: blogger.proto
 
 import * as blogger_pb from "./blogger_pb";

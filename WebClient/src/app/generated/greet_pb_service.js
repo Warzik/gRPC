@@ -1,4 +1,4 @@
-// package: greet
+// package: gRPC.server.protos
 // file: greet.proto
 
 var greet_pb = require("./greet_pb");
@@ -6,7 +6,7 @@ var grpc = require("@improbable-eng/grpc-web").grpc;
 
 var Greeter = (function () {
   function Greeter() {}
-  Greeter.serviceName = "greet.Greeter";
+  Greeter.serviceName = "gRPC.server.protos.Greeter";
   return Greeter;
 }());
 

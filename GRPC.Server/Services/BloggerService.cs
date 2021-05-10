@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using Google.Protobuf.Collections;
 using Grpc.Core;
 using GRPC.Server.Persistence;
 using GRPC.Server.Protos;
@@ -9,10 +7,11 @@ using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static GRPC.Server.Protos.Blogger;
 
 namespace GRPC.Server.Services
 {
-    public class BloggerService : Blogger.BloggerBase
+    public class BloggerService : BloggerBase
     {
         private readonly ILogger<BloggerService> _logger;
         private readonly IMapper _mapper;
@@ -32,7 +31,7 @@ namespace GRPC.Server.Services
             var blogs = await _context.Blogs
                 .Take(request.Count)
                 .Include(x => x.Posts)
-                .ToListAsync(); 
+                .ToListAsync();
 
             result.Blogs.AddRange(_mapper.Map<List<BlogDto>>(blogs));
 

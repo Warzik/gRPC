@@ -1,8 +1,8 @@
+// Style Guide: https://developers.google.com/protocol-buffers/docs/style 
+
 syntax = "proto3";
 
-option csharp_namespace = "GRPC.Server.Protos";
-
-package blog;
+package gRPC.server.protos;
 
 service Blogger {
   rpc GetBlogs (BlogRequest) returns (BlogResponse);
@@ -17,13 +17,13 @@ message BlogResponse {
 }
 
 message BlogDto {
-  int32 blogId = 1;
+  int32 blog_id = 1;
   string url = 2;
   repeated PostDto posts = 3;
 }
 
 message PostDto {
-   int32 postId = 1;
+   int32 post_id = 1;
    string title = 2;
    string content = 3;
    int32 blogId = 4;
